@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -B package --file pom.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -50,4 +50,4 @@ jobs:
           app-name: 'Yashproject-new'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3DB928AEED7C422EB6E3AA5DEB9401CD }}
-          package: '*.jar'
+          package: '${{ github.workspace }}/target/*.jar'
