@@ -50,4 +50,4 @@ jobs:
           app-name: 'Yashproject-new'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3DB928AEED7C422EB6E3AA5DEB9401CD }}
-          package: '${{ github.workspace }}/target/*.jar'
+          package: '*.jar'
