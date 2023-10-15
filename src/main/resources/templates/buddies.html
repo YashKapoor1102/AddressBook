@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>List of Buddies</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+  <ul>
+    <li th:each="buddy : ${buddiesList}">
+      <p th:text="${buddy.name}"></p>
+      <p th:text="${buddy.phoneNumber}"></p>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
