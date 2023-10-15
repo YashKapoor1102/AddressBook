@@ -4,20 +4,21 @@
  */
 
 import AddressBookLab.AddressBook;
-import AddressBookLab.AddressBookMain;
 import AddressBookLab.BuddyInfo;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.Assert.*;
 
 /**
  * Tests each method in the AddressBook Class
  */
-@SpringBootTest(classes = AddressBookMain.class)
+@SpringBootTest(classes = AddressBook.class)
 public class TestAddressBook {
+    @Autowired
     private AddressBook addressBook;
     private BuddyInfo buddy1;
     private BuddyInfo buddy2;
@@ -27,7 +28,7 @@ public class TestAddressBook {
      * will be used to ensure each method in the AddressBook class works
      * correctly
      */
-    @Before
+    @BeforeEach
     public void initialize() {
         addressBook = new AddressBook();
         buddy1 = new BuddyInfo("Bella", "666-777-8888");
@@ -39,14 +40,14 @@ public class TestAddressBook {
      */
     @Test
     public void testAddBuddy() {
-        assertEquals(0, addressBook.getBuddyInfo().size());
+        Assertions.assertEquals(0, addressBook.getBuddyInfo().size());
         addressBook.addBuddy(buddy1);
-        assertEquals(1, addressBook.getBuddyInfo().size());
-        assertTrue(addressBook.getBuddyInfo().contains(buddy1));
+        Assertions.assertEquals(1, addressBook.getBuddyInfo().size());
+        Assertions.assertTrue(addressBook.getBuddyInfo().contains(buddy1));
 
         addressBook.addBuddy(buddy2);
-        assertEquals(2, addressBook.getBuddyInfo().size());
-        assertTrue(addressBook.getBuddyInfo().contains(buddy2));
+        Assertions.assertEquals(2, addressBook.getBuddyInfo().size());
+        Assertions.assertTrue(addressBook.getBuddyInfo().contains(buddy2));
     }
 
     /**
@@ -57,14 +58,14 @@ public class TestAddressBook {
         addressBook.addBuddy(buddy1);
         addressBook.addBuddy(buddy2);
 
-        assertEquals(2, addressBook.getBuddyInfo().size());
+        Assertions.assertEquals(2, addressBook.getBuddyInfo().size());
         addressBook.removeBuddy(buddy1);
-        assertFalse(addressBook.getBuddyInfo().contains(buddy1));
-        assertEquals(1, addressBook.getBuddyInfo().size());
+        Assertions.assertFalse(addressBook.getBuddyInfo().contains(buddy1));
+        Assertions.assertEquals(1, addressBook.getBuddyInfo().size());
 
         addressBook.removeBuddy(buddy2);
-        assertEquals(0, addressBook.getBuddyInfo().size());
-        assertFalse(addressBook.getBuddyInfo().contains(buddy2));
+        Assertions.assertEquals(0, addressBook.getBuddyInfo().size());
+        Assertions.assertFalse(addressBook.getBuddyInfo().contains(buddy2));
     }
 
     /**
@@ -75,14 +76,14 @@ public class TestAddressBook {
         String firstBuddyName = buddy1.getName();
         String firstBuddyPhoneNumber = buddy1.getPhoneNumber();
 
-        assertEquals("Bella", firstBuddyName);
-        assertEquals("666-777-8888", firstBuddyPhoneNumber);
+        Assertions.assertEquals("Bella", firstBuddyName);
+        Assertions.assertEquals("666-777-8888", firstBuddyPhoneNumber);
 
         String secondBuddyName = buddy2.getName();
         String secondBuddyPhoneNumber = buddy2.getPhoneNumber();
 
-        assertEquals("Andy", secondBuddyName);
-        assertEquals("777-888-9999", secondBuddyPhoneNumber);
+        Assertions.assertEquals("Andy", secondBuddyName);
+        Assertions.assertEquals("777-888-9999", secondBuddyPhoneNumber);
     }
 
     /**

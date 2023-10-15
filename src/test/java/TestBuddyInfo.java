@@ -3,26 +3,26 @@
  * Student ID: 101163338
  */
 
-import AddressBookLab.AddressBookMain;
 import AddressBookLab.BuddyInfo;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.Assert.*;
 
 /**
  * Tests each method in the BuddyInfo Class
  */
-@SpringBootTest(classes = AddressBookMain.class)
+@SpringBootTest(classes = BuddyInfo.class)
 public class TestBuddyInfo {
+    @Autowired
     private BuddyInfo buddy;
 
     /**
      * Initializes a new BuddyInfo object that is going to be used to
      * ensure each method in the BuddyInfo class works correctly
      */
-    @Before
+    @BeforeEach
     public void initialize() {
         buddy = new BuddyInfo("Bella", "666-777-8888");
     }
@@ -32,7 +32,7 @@ public class TestBuddyInfo {
      */
     @Test
     public void testGetName() {
-        assertEquals("Bella", buddy.getName());
+        Assertions.assertEquals("Bella", buddy.getName());
     }
 
     /**
@@ -40,7 +40,7 @@ public class TestBuddyInfo {
      */
     @Test
     public void testGetPhoneNumber() {
-        assertEquals("666-777-8888", buddy.getPhoneNumber());
+        Assertions.assertEquals("666-777-8888", buddy.getPhoneNumber());
     }
 
     /**
@@ -49,7 +49,7 @@ public class TestBuddyInfo {
     @Test
     public void testToString() {
         String expected = "Name of Buddy: Bella, Phone Number of Buddy: 666-777-8888";
-        assertEquals(expected, buddy.toString());
+        Assertions.assertEquals(expected, buddy.toString());
     }
 
     /**
