@@ -108,6 +108,7 @@ public class BuddyInfo {
      */
     @Override
     public String toString()    {
-        return "Name of Buddy: " + getName() + ", Phone Number of Buddy: " + getPhoneNumber();
+        return "Name of Buddy: " + getName() + ", Phone Number of Buddy: " + getPhoneNumber()
+                + ", Address of Buddy: " + getAddress();
     }
 }

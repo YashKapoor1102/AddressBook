@@ -52,7 +52,7 @@ public class TestBuddyInfo {
      */
     @Test
     public void testToString() {
-        String expected = "Name of Buddy: Bella, Phone Number of Buddy: 666-777-8888";
+        String expected = "Name of Buddy: Bella, Phone Number of Buddy: 666-777-8888, Address of Buddy: 123 Fake Street";
         Assertions.assertEquals(expected, buddy.toString());
     }
 
