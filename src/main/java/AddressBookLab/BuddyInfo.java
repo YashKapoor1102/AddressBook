@@ -21,6 +21,7 @@ public class BuddyInfo {
 
     private String name;
     private String phoneNumber;
+    private String address;
 
     /**
      * Default constructor for BuddyInfo
@@ -28,7 +29,7 @@ public class BuddyInfo {
      * and the number of the buddy
      */
     public BuddyInfo() {
-        this("", "");
+        this("", "", "");
     }
 
     /**
@@ -53,9 +54,10 @@ public class BuddyInfo {
      * @param name      a String, name of the buddy
      * @param phoneNumber    a String, number of the buddy
      */
-    public BuddyInfo(String name, String phoneNumber) {
+    public BuddyInfo(String name, String phoneNumber, String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     /**
@@ -90,6 +92,14 @@ public class BuddyInfo {
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     /**

@@ -31,8 +31,8 @@ public class TestAddressBook {
     @BeforeEach
     public void initialize() {
         addressBook = new AddressBook();
-        buddy1 = new BuddyInfo("Bella", "666-777-8888");
-        buddy2 = new BuddyInfo("Andy", "777-888-9999");
+        buddy1 = new BuddyInfo("Bella", "666-777-8888", "123 Fake Street");
+        buddy2 = new BuddyInfo("Andy", "777-888-9999", "333 Fake Street");
     }
 
     /**

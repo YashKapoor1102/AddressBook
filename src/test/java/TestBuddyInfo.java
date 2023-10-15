@@ -24,7 +24,7 @@ public class TestBuddyInfo {
      */
     @BeforeEach
     public void initialize() {
-        buddy = new BuddyInfo("Bella", "666-777-8888");
+        buddy = new BuddyInfo("Bella", "666-777-8888", "123 Fake Street");
     }
 
     /**
@@ -43,6 +43,10 @@ public class TestBuddyInfo {
         Assertions.assertEquals("666-777-8888", buddy.getPhoneNumber());
     }
 
+    @Test
+    public void testGetAddress() {
+        Assertions.assertEquals("123 Fake Street", buddy.getAddress());
+    }
     /**
      * Tests the overridden toString() method
      */

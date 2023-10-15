@@ -24,9 +24,9 @@ public class AddressBookMain {
     public CommandLineRunner demo(AddressRepository addressRepository, BuddyRepository buddyInfoRepository) {
         return (args) -> {
 
-            BuddyInfo buddy1 = new BuddyInfo("Jimmy", "123-456-7777");
-            BuddyInfo buddy2 = new BuddyInfo("Dwayne", "222-333-4444");
-            BuddyInfo buddy3 = new BuddyInfo("Chris", "333-444-5555");
+            BuddyInfo buddy1 = new BuddyInfo("Jimmy", "123-456-7777", "22 Fake Street");
+            BuddyInfo buddy2 = new BuddyInfo("Dwayne", "222-333-4444", "32 Fake Street");
+            BuddyInfo buddy3 = new BuddyInfo("Chris", "333-444-5555", "42 Fake Street");
 
             // Save the BuddyInfo objects using BuddyInfoRepository
             buddyInfoRepository.save(buddy1);
