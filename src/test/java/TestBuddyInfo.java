@@ -7,11 +7,7 @@ import AddressBookLab.AddressBookMain;
 import AddressBookLab.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
-
-import jakarta.persistence.*;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.junit.Assert.*;
 
