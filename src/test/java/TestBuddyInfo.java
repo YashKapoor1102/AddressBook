@@ -3,11 +3,13 @@
  * Student ID: 101163338
  */
 
+import AddressBookLab.AddressBookMain;
 import AddressBookLab.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
 
 import jakarta.persistence.*;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ import static org.junit.Assert.*;
 /**
  * Tests each method in the BuddyInfo Class
  */
+@SpringBootTest(classes = AddressBookMain.class)
 public class TestBuddyInfo {
     private BuddyInfo buddy;
 

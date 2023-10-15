@@ -4,11 +4,14 @@
  */
 
 import AddressBookLab.AddressBook;
+import AddressBookLab.AddressBookMain;
 import AddressBookLab.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
 
 import jakarta.persistence.*;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -16,8 +19,8 @@ import static org.junit.Assert.*;
 /**
  * Tests each method in the AddressBook Class
  */
+@SpringBootTest(classes = AddressBookMain.class)
 public class TestAddressBook {
-
     private AddressBook addressBook;
     private BuddyInfo buddy1;
     private BuddyInfo buddy2;
