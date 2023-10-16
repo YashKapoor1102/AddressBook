@@ -12,6 +12,10 @@ import org.springframework.http.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Tests the execution of each HTTP Request and
+ * whether it is being made successfully
+ */
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = AddressBookMain.class)
 public class TestHttpRequest {
 
@@ -21,6 +25,9 @@ public class TestHttpRequest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    /**
+     * Testing if the HTTP POST Request is made correctly
+     */
     @Test
     public void testPostRequest() {
         // Define the request URL
@@ -29,7 +36,7 @@ public class TestHttpRequest {
         // Send the POST request and get the response entity
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, null, String.class);
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK); // Adjust the status code as needed
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         // asserting response as JSON string
         String jsonResponse = responseEntity.getBody();
@@ -47,6 +54,9 @@ public class TestHttpRequest {
         }
     }
 
+    /**
+     * Testing if the HTTP GET Request is made correctly
+     */
     @Test
     public void testGetRequest() {
         int idToTest = 1;
@@ -57,7 +67,7 @@ public class TestHttpRequest {
         // Send the GET request and get the response entity
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
 
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK); // Adjust the status code as needed
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         String responseBody = responseEntity.getBody();
         assertThat(responseBody).isNotNull();
@@ -73,6 +83,9 @@ public class TestHttpRequest {
 
     }
 
+    /**
+     * Testing if the HTTP PUT Request is made correctly
+     */
     @Test
     public void testPutRequest() {
         int idToTest = 2;
@@ -97,7 +110,7 @@ public class TestHttpRequest {
         ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, String.class);
 
         // Assert the response
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK); // Adjust the status code as needed
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         String responseBody = responseEntity.getBody();
         assertThat(responseBody).isNotNull();
@@ -105,6 +118,9 @@ public class TestHttpRequest {
         assertThat(responseBody).contains("\"name\":\"Mark\",\"phoneNumber\":\"111-222-3333\"");
     }
 
+    /**
+     * Testing if the HTTP DELETE Request is made correctly
+     */
     @Test
     public void testDeleteRequest() {
         int idToTest = 1;
