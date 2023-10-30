@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+    <title>Create Address Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script th:src="@{/addressbook.js}"></script>
+</head>
+<body>
+<h2>Add Buddy to Address Book</h2>
+<form id="addBuddyForm" th:action="@{/addressbook/addBuddyForm}" th:object="${addressBook}" method="post">
+    <p>Address Book ID: <input type="text" id="addressBookId" th:field="*{id}" /></p>
+    <p>Buddy ID (optional for deleting a buddy): <input type="text" id="buddyId" /></p>
+    <p>Name: <input type="text" id="buddyName" name="name" required /></p>
+    <p>Phone Number: <input type="text" id="buddyPhoneNumber" name="phoneNumber" required /></p>
+    <p>Address: <input type="text" id="buddyAddress" name="address" required /></p>
+    <p>
+        <button type="button" id="viewBuddyButton">View Buddies</button>
+        <button type="button" id="addBuddyButton">Add Buddy</button>
+        <button type="button" id="deleteBuddyButton">Delete Buddy</button>
+        <input type="reset" value="Reset" />
+    </p>
+</form>
+
+<h2>Buddies List</h2>
+<ul id="buddiesList"></ul>
+
+</body>
+</html>
